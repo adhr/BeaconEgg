@@ -16,4 +16,4 @@
     // Export
     ns.Region = Region;
 
-}(this, document, beaconegg));
+}(this, document, adhr));
