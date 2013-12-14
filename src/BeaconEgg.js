@@ -1,4 +1,3 @@
-beaconegg = {};
 ;(function(win, doc, ns) {
 
     "use strict";
@@ -6,10 +5,13 @@ beaconegg = {};
     /**
      * iBeacon 
      * @constructor
+     * @extends beaconegg.EventDispatcher
      */
     function BeaconEgg() {
         this.regions = [];
     }
+
+    BeaconEgg.prototype = new ns.EventDispatcher;
 
     /**
      * redirect to start monitoring
