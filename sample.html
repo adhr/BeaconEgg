@@ -1,55 +1,66 @@
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>BeaconEgg sample</title>
+<style>
+body {
+    margin: 0; padding: 0;
+}
+h1 {
+    color: #fff;
+    text-align: center;
+}
+</style>
 </head>
 <body>
     <h1>BeaconEgg sample</h1>
-<script src="beaconegg.min.js"></script>
-<script>
-    var be     = new adhr.BeaconEgg,
-        region = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02');
+    <script src="beaconegg.min.js"></script>
+    <script>
+        var be     = new adhr.BeaconEgg,
+            region = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02');
 
-    /**
-     * iBeaconと接続が完了した時のイベント
-     */
-    be.addEventListener(adhr.BeaconEgg.EVENT_ENTER_REGION, function(region) {
-        alert('Enter Region!!')
-    });
+        /**
+         * iBeaconと接続が完了した時のイベント
+         */
+        be.addEventListener(adhr.BeaconEgg.EVENT_ENTER_REGION, function(region) {
+            alert('Enter Region!!')
+        });
 
-    /**
-     * iBeaconと接続が終了した時のイベント
-     */
-    be.addEventListener(adhr.BeaconEgg.EVENT_EXIT_REGION, function(region) {
-        alert('Exit Region!!')
-    });
+        /**
+         * iBeaconと接続が終了した時のイベント
+         */
+        be.addEventListener(adhr.BeaconEgg.EVENT_EXIT_REGION, function(region) {
+            alert('Exit Region!!')
+        });
 
-    /**
-     * iBeaconから定期的に送信されるデータの受信イベント
-     */
-    be.addEventListener(adhr.BeaconEgg.EVENT_RENGE, function(beacons) {
-        var beacon = beacons[0];
-        switch(true) {
-        case beacon.isImmediate():
-            document.body.style.backgroundColor = 'red';
-            break;
-        case beacon.isNear():
-            document.body.style.backgroundColor = 'yellow';
-            break;
-        case beacon.isFar():
-            document.body.style.backgroundColor = 'green';
-            break;
-        case beacon.isUnKnown():
-            document.body.style.backgroundColor = 'black';
-            break;
-        default:
-            document.body.style.backgroundColor = 'white';
-        }
-    });
+        /**
+         * iBeaconから定期的に送信されるデータの受信イベント
+         */
+        be.addEventListener(adhr.BeaconEgg.EVENT_RENGE, function(beacons) {
+            var beacon = beacons[0];
+            switch(true) {
+            case beacon.isImmediate():
+                document.body.style.backgroundColor = 'red';
+                break;
+            case beacon.isNear():
+                document.body.style.backgroundColor = 'yellow';
+                break;
+            case beacon.isFar():
+                document.body.style.backgroundColor = 'green';
+                break;
+            case beacon.isUnKnown():
+                document.body.style.backgroundColor = 'black';
+                break;
+            default:
+                document.body.style.backgroundColor = 'white';
+            }
+        });
 
-    /**
-     * モニタリングスタート
-     */
-    be.startMonitoring(region);
-</script>
+        /**
+         * モニタリングスタート
+         */
+        be.startMonitoring(region);
+    </script>
 </body>
 </html>
