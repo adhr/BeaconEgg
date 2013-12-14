@@ -70,4 +70,4 @@
 
     beaconegg.EventDispatcher = EventDispatcher;
 
-}(this, document, beaconegg));
+}(this, document, adhr));

@@ -19,52 +19,52 @@
     /**
      * @const {string}
      */
-    Beacon.prototype.PROXIMITY_IMMEDIATE = 'ProximityImmediate';
+    Beacon.PROXIMITY_IMMEDIATE = 'ProximityImmediate';
 
     /**
      * @const {string}
      */
-    Beacon.prototype.PROXIMITY_NEAR = 'ProximityNear';
+    Beacon.PROXIMITY_NEAR = 'ProximityNear';
 
     /**
      * @const {string}
      */
-    Beacon.prototype.PROXIMITY_FAR = 'ProximityFar';
+    Beacon.PROXIMITY_FAR = 'ProximityFar';
 
     /**
      * @const {string}
      */
-    Beacon.prototype.PROXIMITY_UN_KNOWN = 'ProximityUnKnown';
+    Beacon.PROXIMITY_UN_KNOWN = 'ProximityUnKnown';
 
     /**
      * @return {boolean}
      */
     Beacon.prototype.isImmediate = function() {
-        return this.proximity === this.PROXIMITY_IMMEDIATE;
+        return this.proximity === Beacon.PROXIMITY_IMMEDIATE;
     };
 
     /**
      * @return {boolean}
      */
     Beacon.prototype.isNear = function() {
-        return this.proximity === this.PROXIMITY_NEAR;
+        return this.proximity === Beacon.PROXIMITY_NEAR;
     };
 
     /**
      * @return {boolean}
      */
     Beacon.prototype.isFar = function() {
-        return this.proximity === this.PROXIMITY_FAR;
+        return this.proximity === Beacon.PROXIMITY_FAR;
     };
 
     /**
      * @return {boolean}
      */
     Beacon.prototype.isUnKnown = function() {
-        return this.proximity === this.PROXIMITY_UN_KNOWN;
+        return this.proximity === Beacon.PROXIMITY_UN_KNOWN;
     };
 
     // Export
     ns.Beacon = Beacon;
 
-}(this, document, beaconegg));
+}(this, document, adhr));

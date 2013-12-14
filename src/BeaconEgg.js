@@ -8,6 +8,7 @@
      * @extends beaconegg.EventDispatcher
      */
     function BeaconEgg() {
+        win.beaconegg = this;
     }
 
     BeaconEgg.prototype = new ns.EventDispatcher;
@@ -25,7 +26,7 @@
     /**
      * @const {string}
      */
-    BeaconEgg.prototype.EVENT_RANGE = 'beaconegg.event.range';
+    BeaconEgg.prototype.EVENT_RENGE = 'beaconegg.event.renge';
 
     /**
      * redirect to start monitoring
@@ -51,7 +52,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.didEnterRegion = function(data) {
-        this.dispatchEvent(this.EVENT_ENTER_REGION);
+        this.dispatchEvent(BeaconEgg.EVENT_ENTER_REGION);
     }
 
     /**
@@ -60,7 +61,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.didExitRegion = function(data) {
-        this.dispatchEvent(this.EVENT_EXIT_REGION);
+        this.dispatchEvent(BeaconEgg.EVENT_EXIT_REGION);
     }
 
     /**
@@ -69,10 +70,10 @@
      * @return {void}
      */
     BeaconEgg.prototype.didRenge = function(data) {
-        this.dispatchEvent(this.EVENT_RANGE);
+        this.dispatchEvent(BeaconEgg.EVENT_RENGE);
     }
 
     // Export
     ns.BeaconEgg = BeaconEgg;
 
-}(this, document, beaconegg));
+}(this, document, adhr));
