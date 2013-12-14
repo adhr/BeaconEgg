@@ -6,15 +6,40 @@
 <style>
 body {
     margin: 0; padding: 0;
+    background: url(./img/egg.png) no-repeat center center #ff961f;
+    background-size: 50%;
+    -webkit-transition: background-color 0.3s ease-out;
+    -mz-transition: background-color 0.3s ease-out;
+    -s-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
 }
 h1 {
     color: #fff;
     text-align: center;
 }
+#parameter_box {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100px;
+    color: #fff;
+    font-size: 11px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.4);
+    border: solid #333 2px;
+}
+#parameter_box p {
+    margin: 0; padding: 0;
+}
 </style>
 </head>
 <body>
     <h1>BeaconEgg sample</h1>
+    <div id="parameter_box">
+        <p id="rssi">rssi: 0</p>
+        <p id="accuracy">accuracy: 0</p>
+        <p id="major">major: 0</p>
+        <p id="minor">minor: 0</p>
+    </div>
     <script src="beaconegg.min.js"></script>
     <script>
         var be     = new adhr.BeaconEgg,
@@ -41,26 +66,26 @@ h1 {
             var beacon = beacons[0];
             switch(true) {
             case beacon.isImmediate():
-                document.body.style.backgroundColor = 'red';
+                document.body.style.backgroundColor = 'rgb(199, 43, 43)';
                 break;
             case beacon.isNear():
-                document.body.style.backgroundColor = 'yellow';
+                document.body.style.backgroundColor = 'rgb(199, 199, 43)';
                 break;
             case beacon.isFar():
-                document.body.style.backgroundColor = 'green';
+                document.body.style.backgroundColor = 'rgb(74, 199, 43)';
                 break;
             case beacon.isUnKnown():
-                document.body.style.backgroundColor = 'black';
+                document.body.style.backgroundColor = 'rgb(43, 193, 199)';
                 break;
             default:
-                document.body.style.backgroundColor = 'white';
+                document.body.style.backgroundColor = '#ff961f';
             }
         });
 
         /**
          * モニタリングスタート
          */
-        be.startMonitoring(region);
+        //be.startMonitoring(region);
     </script>
 </body>
 </html>
