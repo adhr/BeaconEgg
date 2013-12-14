@@ -8,10 +8,24 @@
      * @extends beaconegg.EventDispatcher
      */
     function BeaconEgg() {
-        this.regions = [];
     }
 
     BeaconEgg.prototype = new ns.EventDispatcher;
+
+    /**
+     * @const {string}
+     */
+    BeaconEgg.prototype.EVENT_ENTER_REGION = 'beaconegg.event.enter.region';
+
+    /**
+     * @const {string}
+     */
+    BeaconEgg.prototype.EVENT_EXIT_REGION = 'beaconegg.event.exit.region';
+
+    /**
+     * @const {string}
+     */
+    BeaconEgg.prototype.EVENT_RANGE = 'beaconegg.event.range';
 
     /**
      * redirect to start monitoring
@@ -19,6 +33,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.startMonitoring = function(region) {
+        location.href = 'beaconegg://egg/start-monitoring?proximityUUID=' + region.uuid + '&id=' + region.id;
     };
 
     /**
@@ -27,6 +42,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.stopMonitoring = function(region) {
+        location.href = 'beaconegg://egg/stop-monitoring?proximityUUID=' + region.uuid;
     };
 
     /**
@@ -35,6 +51,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.didEnterRegion = function(data) {
+        this.dispatchEvent(this.EVENT_ENTER_REGION);
     }
 
     /**
@@ -43,6 +60,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.didExitRegion = function(data) {
+        this.dispatchEvent(this.EVENT_EXIT_REGION);
     }
 
     /**
@@ -51,6 +69,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.didRenge = function(data) {
+        this.dispatchEvent(this.EVENT_RANGE);
     }
 
     // Export
