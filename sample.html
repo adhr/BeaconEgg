@@ -5,6 +5,7 @@
 <title>BeaconEgg sample</title>
 <style>
 body {
+    font-family: 'HelveticaNeue-UltraLight';
     margin: 0; padding: 0;
     background: url(./img/egg.png) no-repeat center center #ff961f;
     background-size: 50%;
@@ -43,8 +44,12 @@ h1 {
     </div>
     <script src="beaconegg.min.js"></script>
     <script>
-        var be     = new adhr.BeaconEgg,
-            region = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02');
+        var be          = new adhr.BeaconEgg,
+            region      = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02'),
+            rssiElm     = document.getElementById('rssi'),
+            accuracyElm = document.getElementById('accuracy'),
+            majorElm    = document.getElementById('major'),
+            minorElm    = document.getElementById('minor');
 
         /**
          * iBeaconと接続が完了した時のイベント
@@ -81,12 +86,17 @@ h1 {
             default:
                 document.body.style.backgroundColor = '#ff961f';
             }
+
+            rssiElm.innerHTML     = 'rssi: ' + beacon.rssi;
+            accuracyElm.innerHTML = 'accuracy: ' + beacon.accuracy;
+            majorElm.innerHTML    = 'major: ' + beacon.major;
+            minorElm.innerHTML    = 'minor: ' + beacon.minor;
         });
 
         /**
          * モニタリングスタート
          */
-        //be.startMonitoring(region);
+        be.startMonitoring(region);
     </script>
 </body>
 </html>
