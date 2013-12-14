@@ -96,7 +96,7 @@
     BeaconEgg.prototype.didRenge = function(data) {
         var beacons = [];
         for (var i = 0; i < data.beacons.length; i++) {
-            beacons.push(new Beacon(result.beacons[i]));
+            beacons.push(new ns.Beacon(data.beacons[i]));
         }
         this.dispatchEvent(BeaconEgg.EVENT_RENGE, beacons);
     }
