@@ -16,17 +16,17 @@
     /**
      * @const {string}
      */
-    BeaconEgg.prototype.EVENT_ENTER_REGION = 'beaconegg.event.enter.region';
+    BeaconEgg.EVENT_ENTER_REGION = 'beaconegg.event.enter.region';
 
     /**
      * @const {string}
      */
-    BeaconEgg.prototype.EVENT_EXIT_REGION = 'beaconegg.event.exit.region';
+    BeaconEgg.EVENT_EXIT_REGION = 'beaconegg.event.exit.region';
 
     /**
      * @const {string}
      */
-    BeaconEgg.prototype.EVENT_RENGE = 'beaconegg.event.renge';
+    BeaconEgg.EVENT_RENGE = 'beaconegg.event.renge';
 
     /**
      * redirect to start monitoring
