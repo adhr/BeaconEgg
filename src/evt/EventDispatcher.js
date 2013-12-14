@@ -68,6 +68,6 @@
         }
     };
 
-    beaconegg.EventDispatcher = EventDispatcher;
+    ns.EventDispatcher = EventDispatcher;
 
 }(this, document, adhr));
