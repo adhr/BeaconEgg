@@ -62,9 +62,13 @@
     EventDispatcher.prototype.dispatchEvent = function(type) {
         if (!this.hasEventListener(type)) return;
 
-        var handlers = this.events[type];
+        var handlers = this.events[type],
+            params   = Array.prototype.slice.call(arguments);;
+
+        params.shift();
+
         for (var i = 0; i < handlers.length; i++) {
-            handlers[i].call();
+            handlers[i].apply(null, params);
         }
     };
 

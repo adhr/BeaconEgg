@@ -52,7 +52,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.didEnterRegion = function(data) {
-        this.dispatchEvent(BeaconEgg.EVENT_ENTER_REGION);
+        this.dispatchEvent(BeaconEgg.EVENT_ENTER_REGION, data);
     }
 
     /**
@@ -61,7 +61,7 @@
      * @return {void}
      */
     BeaconEgg.prototype.didExitRegion = function(data) {
-        this.dispatchEvent(BeaconEgg.EVENT_EXIT_REGION);
+        this.dispatchEvent(BeaconEgg.EVENT_EXIT_REGION, data);
     }
 
     /**
@@ -70,7 +70,11 @@
      * @return {void}
      */
     BeaconEgg.prototype.didRenge = function(data) {
-        this.dispatchEvent(BeaconEgg.EVENT_RENGE);
+        var beacons = [];
+        for (var i = 0; i < data.beacons.length; i++) {
+            beacons.push(new Beacon(result.beacons[i]));
+        }
+        this.dispatchEvent(BeaconEgg.EVENT_RENGE, beacons);
     }
 
     // Export
