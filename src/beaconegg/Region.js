@@ -8,9 +8,9 @@
      * @param {string} uuid
      * @constructor
      */
-    function Region(id, uuid) {
-        this.id   = id;
-        this.uuid = uuid;
+    function Region(identifier, uuid) {
+        this.identifier = identifier;
+        this.uuid       = uuid;
     }
 
     // Export

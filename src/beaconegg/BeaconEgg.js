@@ -8,8 +8,8 @@
      * @extends adhr.EventDispatcher
      */
     function BeaconEgg() {
-        win.beaconegg = this;
-        this.regions  = [];
+        ns.beaconegg = this;
+        this.regions = [];
     }
 
     BeaconEgg.prototype = new ns.EventDispatcher;
@@ -27,7 +27,7 @@
     /**
      * @const {string}
      */
-    BeaconEgg.EVENT_RENGE = 'adhr.beaconegg.event.renge';
+    BeaconEgg.EVENT_RANGE = 'adhr.beaconegg.event.range';
 
     /**
      * @param {string} uuid region uuid
@@ -57,7 +57,7 @@
      */
     BeaconEgg.prototype.startMonitoring = function(region) {
         this.regions.push(region);
-        location.href = 'beaconegg://egg/start-monitoring?proximityUUID=' + region.uuid + '&id=' + region.id;
+        location.href = 'beaconegg://egg/start-monitoring?proximityUUID=' + region.uuid + '&identifier=' + region.identifier;
     };
 
     /**
@@ -89,16 +89,16 @@
     }
 
     /**
-     * dispatch event to renge
+     * dispatch event to range
      * @param  {hash} data beacon data
      * @return {void}
      */
-    BeaconEgg.prototype.didRenge = function(data) {
+    BeaconEgg.prototype.didRange = function(data) {
         var beacons = [];
         for (var i = 0; i < data.beacons.length; i++) {
             beacons.push(new ns.Beacon(data.beacons[i]));
         }
-        this.dispatchEvent(BeaconEgg.EVENT_RENGE, beacons);
+        this.dispatchEvent(BeaconEgg.EVENT_RANGE, beacons);
     }
 
     // Export

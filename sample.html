@@ -69,7 +69,7 @@ h1 {
         /**
          * iBeaconから定期的に送信されるデータの受信イベント
          */
-        be.addEventListener(adhr.BeaconEgg.EVENT_RENGE, function(beacons) {
+        be.addEventListener(adhr.BeaconEgg.EVENT_RANGE, function(beacons) {
             var beacon = beacons[0];
             switch(true) {
             case beacon.isImmediate():
