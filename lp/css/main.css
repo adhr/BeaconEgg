@@ -1,0 +1,225 @@
+@charset "UTF-8";
+/* --------------------------------------------------
+    import
+-------------------------------------------------- */
+/* compass
+---------------------------------------------- */
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* mixin
+---------------------------------------------- */
+/* --------------------------------------------------
+    vars
+-------------------------------------------------- */
+/* length
+---------------------------------------------- */
+/* color
+---------------------------------------------- */
+/* animation
+---------------------------------------------- */
+@-webkit-keyframes fadeIn {
+  /* line 46, ../sass/main.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 47, ../sass/main.scss */
+  65% {
+    opacity: 0;
+  }
+
+  /* line 48, ../sass/main.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes rotate {
+  /* line 53, ../sass/main.scss */
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  /* line 54, ../sass/main.scss */
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------
+    base style
+-------------------------------------------------- */
+/* line 60, ../sass/main.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 64, ../sass/main.scss */
+html {
+  min-height: 100%;
+  height: 100%;
+}
+
+/* line 69, ../sass/main.scss */
+body {
+  font-size: 15px;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #ff9100;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff9100), color-stop(100%, #ff6a19));
+  background-image: -webkit-linear-gradient(#ff9100, #ff6a19);
+  background-image: -moz-linear-gradient(#ff9100, #ff6a19);
+  background-image: -o-linear-gradient(#ff9100, #ff6a19);
+  background-image: linear-gradient(#ff9100, #ff6a19);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  background-attachment: fixed;
+  line-height: 1.75;
+  text-rendering: optimizelegibility;
+  min-height: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* line 84, ../sass/main.scss */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* line 89, ../sass/main.scss */
+img {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 93, ../sass/main.scss */
+.hidden {
+  display: none;
+}
+
+/* line 97, ../sass/main.scss */
+.modTitle {
+  margin: 40px 0 15px;
+  -webkit-animation-name: 'fadeIn';
+  -webkit-animation-duration: .75s;
+}
+/* line 102, ../sass/main.scss */
+.modTitle h1 {
+  font-weight: 100;
+  font-size: 52px;
+}
+
+/* line 108, ../sass/main.scss */
+.modMainVisual {
+  text-align: center;
+}
+
+/* line 112, ../sass/main.scss */
+.modPrg {
+  margin: 50px 0;
+  -webkit-animation-name: 'fadeIn';
+  -webkit-animation-duration: .75s;
+}
+
+/* line 118, ../sass/main.scss */
+section {
+  margin: 50px 0;
+  -webkit-animation-name: 'fadeIn';
+  -webkit-animation-duration: .75s;
+}
+/* line 123, ../sass/main.scss */
+section > h1 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* line 129, ../sass/main.scss */
+.btn {
+  display: inline-block;
+  background: #fff;
+  color: #ff9100;
+  padding: 5px 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* line 137, ../sass/main.scss */
+footer {
+  font-weight: 100;
+  background: #fff;
+  padding: 1em;
+  text-align: right;
+  color: #000;
+  margin-top: 75px;
+}
