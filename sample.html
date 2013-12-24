@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>BeaconEgg sample</title>
+<style>
+body {
+    font-family: 'HelveticaNeue-UltraLight';
+    margin: 0; padding: 0;
+    background: url(lp/img/egg.png) no-repeat center center #ff961f;
+    background-size: 50%;
+    -webkit-transition: background-color 0.3s ease-out;
+    -mz-transition: background-color 0.3s ease-out;
+    -s-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
+}
+h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 60px;
+    font-weight: normal;
+}
+#parameter_box {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    color: #fff;
+    font-size: 11px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.4);
+    border-top: solid #333 1px;
+}
+#parameter_box p {
+    margin: 0; padding: 0;
+}
+</style>
+</head>
+<body>
+    <h1>BeaconEgg<br />sample</h1>
+    <div id="parameter_box">
+        <p id="rssi">rssi: 0</p>
+        <p id="accuracy">accuracy: 0</p>
+        <p id="major">major: 0</p>
+        <p id="minor">minor: 0</p>
+    </div>
+    <script src="https://raw.github.com/adhr/BeaconEgg/master/beaconegg.min.js"></script>
+    <script>
+        var be          = new adhr.BeaconEgg,
+            region      = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02'),
+            rssiElm     = document.getElementById('rssi'),
+            accuracyElm = document.getElementById('accuracy'),
+            majorElm    = document.getElementById('major'),
+            minorElm    = document.getElementById('minor');
+
+        /**
+         * iBeaconと接続が完了した時のイベント
+         */
+        be.enterRegion(function(region) {
+            alert('Enter Region!!')
+        });
+
+        /**
+         * iBeaconと接続が終了した時のイベント
+         */
+        be.exitRegion(function(region) {
+            alert('Exit Region!!')
+        });
+
+        /**
+         * iBeaconから定期的に送信されるデータの受信イベント
+         */
+        be.range(function(beacons) {
+            var beacon = beacons[0];
+            switch(true) {
+            case beacon.isImmediate():
+                document.body.style.backgroundColor = 'rgb(199, 43, 43)';
+                break;
+            case beacon.isNear():
+                document.body.style.backgroundColor = 'rgb(199, 199, 43)';
+                break;
+            case beacon.isFar():
+                document.body.style.backgroundColor = 'rgb(74, 199, 43)';
+                break;
+            case beacon.isUnKnown():
+                document.body.style.backgroundColor = 'rgb(43, 193, 199)';
+                break;
+            default:
+                document.body.style.backgroundColor = '#ff961f';
+            }
+
+            rssiElm.innerHTML     = 'rssi: ' + beacon.rssi;
+            accuracyElm.innerHTML = 'accuracy: ' + beacon.accuracy;
+            majorElm.innerHTML    = 'major: ' + beacon.major;
+            minorElm.innerHTML    = 'minor: ' + beacon.minor;
+        });
+
+        /**
+         * モニタリングスタート
+         */
+        be.startMonitoring(region);
+    </script>
+</body>
+</html>
