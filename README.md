@@ -22,21 +22,21 @@ beaconegg.jsは、専用のiOSアプリ「BeaconEgg」と連携して、iBeacon�
  /**
   * iBeaconと接続が完了した時のイベント
   */
- be.addEventListener(adhr.BeaconEgg.EVENT_ENTER_REGION, function(region) {
+ be.enterRegion(function(region) {
      alert('Enter Region!!')
  });
 
  /**
   * iBeaconと接続が終了した時のイベント
   */
- be.addEventListener(adhr.BeaconEgg.EVENT_EXIT_REGION, function(region) {
+ be.exitRegion(function(region) {
      alert('Exit Region!!')
  });
 
  /**
   * iBeaconから定期的に送信されるデータの受信イベント
   */
- be.addEventListener(adhr.BeaconEgg.EVENT_RENGE, function(beacons) {
+ be.range(function(beacons) {
      var beacon = beacons[0];
      switch(true) {
      case beacon.isImmediate():
