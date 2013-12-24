@@ -141,6 +141,33 @@ adhr= {};
     };
 
     /**
+     * add enter region event
+     * @param {function} callback
+     * @return {void}
+     */
+    BeaconEgg.prototype.enterRegion = function(callback) {
+        this.addEventListener(BeaconEgg.EVENT_ENTER_REGION, callback);
+    }
+
+    /**
+     * add exit region event
+     * @param {function} callback
+     * @return {void}
+     */
+    BeaconEgg.prototype.exitRegion = function(callback) {
+        this.addEventListener(BeaconEgg.EVENT_EXIT_REGION, callback);
+    }
+
+    /**
+     * add range event
+     * @param {function} callback
+     * @return {void}
+     */
+    BeaconEgg.prototype.range = function(callback) {
+        this.addEventListener(BeaconEgg.EVENT_RANGE, callback);
+    }
+
+    /**
      * redirect to stop monitoring
      * @param  {adhr.Region} region Region object
      * @return {void}
