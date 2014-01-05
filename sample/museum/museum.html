@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BeaconEgg Museum</title>
+<link rel="stylesheet" href="../../lp/css/main.css">
+<link rel="shortcut icon" href="../../lp/img/favicon.png">
+</head>
+<body>
+<script src="https://rawgithub.com/adhr/BeaconEgg/master/beaconegg.min.js"></script>
+<script>
+    var be          = new adhr.BeaconEgg,
+        region      = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02'),
+        descriptionElm = document,getElementById('description'),
+        eggElm = document.getElementById('egg');
+
+    /**
+     * iBeaconと接続が完了した時のイベント
+     */
+    be.enterRegion(function(region) {
+        alert('Welcome to Egg Museum!')
+    });
+
+    /**
+     * iBeaconと接続が終了した時のイベント
+     */
+    be.exitRegion(function(region) {
+        alert('Thank you!')
+    });
+
+    /**
+     * iBeaconから定期的に送信されるデータの受信イベント
+     */
+    be.range(function(beacons) {
+        var beacon = beacons[0];
+        switch(true) {
+        case beacon.isImmediate():
+        case beacon.isNear():
+            if (beacon.minor == "1") {
+                eggElm.src = "img/red.png";
+                descriptionElm.innerHTML = "red Egg.<br>1982. Egg Man";
+            } else if (beaocn.minor == "2") {
+                eggElm.src = "img/blue.png";
+                descriptionElm.innerHTML = "blue Egg.<br>1987. Egg Man";
+            }
+            break;
+        case beacon.isFar():
+        case beacon.isUnKnown():
+                eggElm.src = "img/notfound.png";
+                descriptionElm.innerHTML = "";
+            break;
+        default:
+        }
+    });
+
+    /**
+     * モニタリングスタート
+     */
+     be.startMonitoring(region);
+</script>
+<div class="modTitle">
+<h1>Guide of Egg</h1>
+</div>
+
+<section>
+<p><img src="img/notfound.png" alt="beaconegg" id="egg" width="85" height="112" /></p>
+<p id="description"></p>
+</section>
+
+<!-- <section>
+  <h1>Guide start</h1>
+  <p><a href="beaconegg://egg/open?url=" class="btn btn-default btn-lg">Open BeaconEgg</a></p>
+</section> -->
+
+
+<footer>
+<small>BeaconEgg Museum</small>
+</footer>
+
+</body>
+</html>
