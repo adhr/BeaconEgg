@@ -63,6 +63,9 @@
             } else if (beacon.minor == 2) {
                 eggElm.src = "img/blue.png";
                 descriptionElm.innerHTML = "blue Egg.<br>1987. Egg Man";
+            } else {
+                eggElm.src = "img/notfound.png";
+                descriptionElm.innerHTML = "";
             }
             break;
         case beacon.isFar():
