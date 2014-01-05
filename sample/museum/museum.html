@@ -37,14 +37,16 @@
      * iBeaconと接続が完了した時のイベント
      */
     be.enterRegion(function(region) {
-        alert('Welcome to Egg Museum!')
+        alert('Welcome to Egg Museum!');
     });
 
     /**
      * iBeaconと接続が終了した時のイベント
      */
     be.exitRegion(function(region) {
-        alert('Thank you!')
+        alert('Thank you!');
+        eggElm.src = "img/notfound.png";
+        descriptionElm.innerHTML = "";
     });
 
     /**
@@ -55,10 +57,10 @@
         switch(true) {
         case beacon.isImmediate():
         case beacon.isNear():
-            if (beacon.minor == "1") {
+            if (beacon.minor == 1) {
                 eggElm.src = "img/red.png";
                 descriptionElm.innerHTML = "red Egg.<br>1982. Egg Man";
-            } else if (beaocn.minor == "2") {
+            } else if (beaocn.minor == 2) {
                 eggElm.src = "img/blue.png";
                 descriptionElm.innerHTML = "blue Egg.<br>1987. Egg Man";
             }
