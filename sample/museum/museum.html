@@ -10,9 +10,9 @@
 <script src="https://rawgithub.com/adhr/BeaconEgg/master/beaconegg.min.js"></script>
 <script>
     var be          = new adhr.BeaconEgg,
-        region      = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02'),
-        descriptionElm = document.getElementById('description'),
-        eggElm = document.getElementById('egg');
+        region      = new adhr.Region('jp.adhr.beacon-egg', '1E21BCE0-7655-4647-B492-A3F8DE2F9A02');
+        // descriptionElm = document.getElementById('description'),
+        // eggElm = document.getElementById('egg');
 
     /**
      * iBeaconと接続が完了した時のイベント
@@ -36,18 +36,18 @@
         switch(true) {
         case beacon.isImmediate():
         case beacon.isNear():
-            if (beacon.minor == "1") {
-                eggElm.src = "img/red.png";
-                descriptionElm.innerHTML = "red Egg.<br>1982. Egg Man";
-            } else if (beaocn.minor == "2") {
-                eggElm.src = "img/blue.png";
-                descriptionElm.innerHTML = "blue Egg.<br>1987. Egg Man";
-            }
+            // if (beacon.minor == "1") {
+            //     eggElm.src = "img/red.png";
+            //     descriptionElm.innerHTML = "red Egg.<br>1982. Egg Man";
+            // } else if (beaocn.minor == "2") {
+            //     eggElm.src = "img/blue.png";
+            //     descriptionElm.innerHTML = "blue Egg.<br>1987. Egg Man";
+            // }
             break;
         case beacon.isFar():
         case beacon.isUnKnown():
-                eggElm.src = "img/notfound.png";
-                descriptionElm.innerHTML = "";
+                // eggElm.src = "img/notfound.png";
+                // descriptionElm.innerHTML = "";
             break;
         default:
         }
